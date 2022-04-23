@@ -178,7 +178,7 @@ _result_color_str = _total_percent_str
 _total_percent_str = "%s%s%s" % (_result_color_str, str(total_percent) + "%", attr(0))
 _skipped_str = "%s%d%s skipped" % (fg('yellow') if total_skipped > 0 else fg('light_gray'), total_skipped, attr(0))
 _failed_str = "%s%d%s failed" % (fg('red') if total_failed > 0 else fg('light_gray'), total_failed, attr(0))
-_emoji = (fg('red') if total_failed > 0 else fg('green')) + ("✔" if total_failed == 0 else "✘" + attr(0))
+_emoji = (fg('red') if total_failed > 0 else fg('green')) + ("+" if total_failed == 0 else "-" + attr(0))
 print('\n  %s Total (%s): %s / %s in %d files' % (
     _emoji, _total_percent_str, _skipped_str, _failed_str, total_file_count), end='')
 sys.exit(code)
